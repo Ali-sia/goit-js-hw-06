@@ -2,10 +2,10 @@ const categoriesEl = document.querySelectorAll('li.item');
 console.log(`Number of categories: ${categoriesEl.length}`);
 
 const categoriesArray = [...categoriesEl];
-const categoryName = categoriesArray.map(categories => categories.children[0].textContent);
+const categoryName = categoriesArray.map(categories => categories.firstElementChild.textContent);
 const subcategoryLength = categoriesArray.map(categories => categories.children[1].children.length);
 
-for (let i = 0; i < categoriesArray.length; i++) {
+for (let i = 0; i < categoriesArray.length; i += 1) {
   console.log(`Category: ${categoryName[i]}\nElements: ${subcategoryLength[i]}`);
 }
 
