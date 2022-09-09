@@ -15,21 +15,31 @@ const images = [
 
 const galleryList = document.querySelector('.gallery');
 
-const element = images.map(options => {
-  const { url, alt } = options;
-
-  const galleryItem = document.createElement('li');
-  const galleryImage = document.createElement('img');
-
-  galleryItem.classList.add('gallery__item');
-  galleryImage.classList.add('gallery__img');
-
-  galleryImage.src = url;
-  galleryImage.alt = alt;
-
-  galleryItem.appendChild(galleryImage);
-
-  return galleryItem;
+//З використанням element.insertAdjacentHTML
+const element = images.map(({ url, alt }) => {
+  return galleryList.insertAdjacentHTML(
+    'beforeend',
+    `<li class = 'gallery__item'><img class = 'gallery__img' src = ${url} alt = ${alt}></li>`
+  );
 });
 
-galleryList.append(...element);
+//З використанням document.createElement
+
+// const element = images.map(options => {
+//   const { url, alt } = options;
+
+//   const galleryItem = document.createElement('li');
+//   const galleryImage = document.createElement('img');
+
+//   galleryItem.classList.add('gallery__item');
+//   galleryImage.classList.add('gallery__img');
+
+//   galleryImage.src = url;
+//   galleryImage.alt = alt;
+
+//   galleryItem.appendChild(galleryImage);
+
+//   return galleryItem;
+// });
+
+// galleryList.append(...element);
